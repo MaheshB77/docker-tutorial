@@ -4,11 +4,13 @@ FROM node:16.17-alpine
 # Make working directory
 WORKDIR /usr/app
 
-# Copy the required files into the container
-COPY . .
+# Copy the package.json (to avoid the rebuilds)
+COPY ./package.json ./
 
 # Install the dependencies
 RUN npm i
+
+COPY ./ ./
 
 # Start the server
 CMD [ "npm", "start" ]
