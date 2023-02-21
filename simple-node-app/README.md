@@ -1,0 +1,1 @@
+# Simple node application with docker configuration
