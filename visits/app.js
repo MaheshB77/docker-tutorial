@@ -3,13 +3,12 @@ const redis =  require("redis");
 
 const app = express();
 const client = redis.createClient();
-(async () => {
-    await client.connect().then(() => {
-        client.set("visits", 0);
-    }).catch((error) => {
-        console.error("Error while connecting to redis server :: " + error);
-    })
-})();
+
+client.connect().then(() => {
+    client.set("visits", 0);
+}).catch((error) => {
+    console.error("Error while connecting to redis server :: " + error);
+});
 
 app.get("/", (req, res) => {
     client.get("visits", (err, visits) => {
