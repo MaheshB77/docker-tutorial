@@ -1,0 +1,7 @@
+services:
+  redis-server:
+    image: redis
+  node-app:
+    build: .
+    ports:
+      - "4002:8085"
