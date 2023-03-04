@@ -1,0 +1,1 @@
+# Dummy application to showcase the use of docker-compose
