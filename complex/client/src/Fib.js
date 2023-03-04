@@ -4,7 +4,7 @@ import axios from 'axios';
 export default function Fib() {
     const [seenIndexes, setSeenIndexes] = useState([]);
     const [values, setValues] = useState({});
-    const [index, setIndex] = useState({});
+    const [index, setIndex] = useState('');
 
     useEffect(() => {
         fetchIndexes();
@@ -42,7 +42,7 @@ export default function Fib() {
         await axios.post('/api/values', {
             index
         });
-        setIndex({ index: '' });
+        setIndex('');
     };
 
     return (
@@ -51,7 +51,7 @@ export default function Fib() {
                 <label>Enter your index : </label>
                 <input
                     value={index}
-                    onChange={(evt) => setIndex({ index: evt.target.value })}
+                    onChange={(evt) => setIndex(evt.target.value)}
                 />
                 <button>Submit</button>
             </form>
